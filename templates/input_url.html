@@ -1,29 +1,21 @@
-<!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="stylesheet" href="./static/css/normalize.css">
-    </head>
-    <body>
-        <!-- Add your site or application content here -->
-        <div class="center">
-                <a href='/top_30.html'>
-                    <form>
-                        <label for="fname">Copy the address from the Yellowpages search you need scraped:</label><br>
-                        <br></br>
-                        <input type="text"><br>
-                        <button>
-                            Scrape
-                        </button>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="./static/css/normalize.css">
+</head>
+<body>
+    <div class="center">
 
-                      </form>
-                </a>
-
-                </a>
-        </div>
-    </body>
-</html>
+        <form action="/sign-up" method="POST">
+            <div class="form-group">
+            <label>YellowPages search url from the address bar</label><br><br>
+            <input type="text" class="form-control" id="username" name="username" placeholder="url from yellow pages"><br><br>
+            </div>
+            <button type="submit" class="btn btn-primary">Scrape</button>
+        </form>
+    </div>
+</body>

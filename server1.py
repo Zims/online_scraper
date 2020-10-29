@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import soup_yp
 
+
 app = Flask(__name__)
 
 f = open("roofer.json", "r")
@@ -34,7 +35,9 @@ def f1():
 # @app.route('"/top_30.html"')
 # def dynamic_page():
 #     return soup_yp.output_file()
-
+@app.route("/sign-up", methods=["GET", "POST"])
+def sign_up():
+    return top_30_data
 
 @app.route("/top_30.html", methods=['GET'])
 def top_30():

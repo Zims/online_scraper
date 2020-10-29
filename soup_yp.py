@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 
 def output_file():
     def get_result():
-        search_url = 'https://www.yellowpages.com/search?search_terms=makeup+artist&geo_location_terms=New+York%2C+FL'
+        search_url = 'https://www.yellowpages.com/search?search_terms=training&geo_location_terms=New+York%2C+OH'
 
         res = requests.get(search_url)
         soup = BeautifulSoup(res.text, 'html.parser')
