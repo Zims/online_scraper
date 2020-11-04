@@ -12,6 +12,7 @@ jinja2 = "*"
 aiofiles = "*"
 flask = "*"
 scrapy = "*"
+requests = "*"
 
 [requires]
 python_version = "3.8"

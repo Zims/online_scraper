@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import soup_yp
 
 
@@ -27,10 +27,17 @@ def input_url():
 def files():
     return render_template('/files.html')
 
+@app.route('/form')
+def form():
+    return render_template('form.html')
 
-@app.route("/f1.html", methods=['GET'])
-def f1():
-    return data
+@app.route('/data/', methods = ['GET', 'POST'])
+def data():
+    if request.method == 'GET':
+        return f"The URL /data is accessed directly. Try going to '/form' to submit form"
+    if request.method == 'POST':
+        form_data = request.form
+        return render_template('data.html',form_data = form_data)
 
 # @app.route('"/top_30.html"')
 # def dynamic_page():
