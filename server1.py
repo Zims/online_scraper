@@ -22,6 +22,15 @@ def index():
 def input_url():
     return render_template('/input_url.html')
 
+@app.route('/input')
+def student():
+   return render_template('input.html')
+
+@app.route('/result',methods = ['POST', 'GET'])
+def result():
+   if request.method == 'POST':
+      result = request.form
+      return render_template("result.html",result = result)
 
 @app.route("/files.html", methods=['GET'])
 def files():
