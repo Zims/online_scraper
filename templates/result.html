@@ -1,13 +1,29 @@
 <!doctype html>
 <html>
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title></title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width">
+
+      <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+      <link rel="stylesheet" href="./static/css/normalize.css">
+
+  </head>
    <body>
-      <table border = 1>
-         {% for key, value in result.items() %}
-            <tr>
-               <th> {{ key }} </th>
-               <td> {{ value }} </td>
-            </tr>
-         {% endfor %}
-      </table>
+      <div class="center">
+         <h2>Scraping your yellow pages search URL</h2>
+
+         <table border = 1>
+            {% for key, value in result.items() %}
+               <tr>
+                  <th> {{ key }} </th>
+                  <td> {{ value }} </td>
+               </tr>
+            {% endfor %}
+         </table>
+      </div>
    </body>
 </html>

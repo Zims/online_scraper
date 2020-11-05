@@ -43,4 +43,4 @@ def output_file(*args):
     with open('top_30.json', 'w') as json_file:
         json.dump(top_30, json_file)
 
-output_file('https://www.yellowpages.com/search?search_terms=makeup+artist&geo_location_terms=New+York%2C+FL')
+output_file(str('https://www.yellowpages.com/search?search_terms=makeup+artist&geo_location_terms=New+York%2C+FL'))
