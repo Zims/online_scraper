@@ -13,6 +13,7 @@ aiofiles = "*"
 flask = "*"
 scrapy = "*"
 requests = "*"
+beautifulsoup4 = "*"
 
 [requires]
 python_version = "3.8"
