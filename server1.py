@@ -21,14 +21,19 @@ def student():
 def result():
    if request.method == 'POST':
       result = request.form
-      soup_yp.output_file('https://www.yellowpages.com/search?search_terms=makeup+artist&geo_location_terms=New+York%2C+FL')
+
+    # how to parse the flask dict:
+    # https://stackoverflow.com/questions/23205577/python-flask-immutablemultidict
+      the_url = request.form.getlist('Name')
+
+      print(the_url)
+      soup_yp.output_file(the_url[0])
       return render_template("result.html",result = result)
 
 
-@app.route("/top_30", methods=['POST', 'GET'])
-def top_30():
-    return soup_yp.output_file()
-
+# @app.route("/top_30", methods=['POST', 'GET'])
+# def top_30():
+#     return soup_yp.output_file()
 
 # @app.route("/files.html", methods=['GET'])
 # def files():
@@ -42,12 +47,6 @@ def top_30():
 #         form_data = request.form
 #         return render_template('data.html',form_data = form_data)
 
-    
-
-    
-# @app.route("/tester", methods=['GET'])
-# def tester():
-#     return data
 
 # Start the server in terminal:
 
