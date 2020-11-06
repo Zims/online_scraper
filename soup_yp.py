@@ -10,8 +10,8 @@ import sys
 
 def output_file(*args):
     def get_result():
-        # search_url = args[0]
-        search_url = str(input("Paste the Yellowpages address to scrape (copy the the address of Yellowpages search results): "))
+        search_url = args[0]
+        # search_url = str(input("Paste the Yellowpages address to scrape (copy the the address of Yellowpages search results): "))
         print(search_url)
         res = requests.get(search_url)
         soup = BeautifulSoup(res.text, 'html.parser')
@@ -22,7 +22,6 @@ def output_file(*args):
             global title
             global address_location
             global phone_num
-            
             for business_title in business.select('.business-name'):
                 title = business_title.find('span').text
             for address in business.select('.locality'):
@@ -43,4 +42,4 @@ def output_file(*args):
     with open('top_30.json', 'w') as json_file:
         json.dump(top_30, json_file)
 
-output_file(str('https://www.yellowpages.com/search?search_terms=makeup+artist&geo_location_terms=New+York%2C+FL'))
+# output_file(str('https://www.yellowpages.com/search?search_terms=makeup+artist&geo_location_terms=New+York%2C+FL'))
