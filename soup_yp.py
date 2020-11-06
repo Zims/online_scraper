@@ -7,12 +7,12 @@ import sys
 # https://www.yellowpages.com/search?search_terms=hairstylist&geo_location_terms=New+York%2C+FL
 # https://www.yellowpages.com/search?search_terms=makeup+artist&geo_location_terms=New+York%2C+FL
 
-# search_url = str(input("Paste the Yellowpages address to scrape (copy the the address of Yellowpages search results): "))
 
 def output_file(*args):
     def get_result():
-        search_url = args[0]
-
+        # search_url = args[0]
+        search_url = str(input("Paste the Yellowpages address to scrape (copy the the address of Yellowpages search results): "))
+        print(search_url)
         res = requests.get(search_url)
         soup = BeautifulSoup(res.text, 'html.parser')
         # links = soup.select('.storylink')
