@@ -18,7 +18,7 @@ def output_file(*args):
         # if "/" in args[1]:
         #     file_name = args[1].replace('/', '_')
         # search_url = str(input("Paste the Yellowpages address to scrape (copy the the address of Yellowpages search results): "))
-        print(search_url)
+        # print(search_url)
         res = requests.get(search_url)
         soup = BeautifulSoup(res.text, 'html.parser')
         # links = soup.select('.storylink')

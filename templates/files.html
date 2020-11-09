@@ -1,31 +1,10 @@
-<!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="stylesheet" href="./static/css/normalize.css">
-    </head>
-    <body>
-        <!-- Add your site or application content here -->
-        <div class="center">
-            <h3>List of all files</h3>
-                <a href='/f1.html'>
-                    <button class="GFG">
-                        JSON 01
-                    </button>
-                <a href='/top_30.html'><br><br>
-
-                    <button class="GFG">
-                        JSON top 30
-                    </button>
-                </a>
-                <a href='/input'>
-
-
-                </a>
-        </div>
-    </body>
+<html>
+   <head>
+      <script type = "text/javascript" 
+         src = "{{ url_for('static', filename = 'hello.js') }}" ></script>
+   </head>
+   
+   <body>
+      <input type = "button" onclick = "sayHello()" value = "Say Hell" />
+   </body>
 </html>

@@ -1,12 +1,11 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, Blueprint
 import soup_yp
 
 app = Flask(__name__)
 
 # f = open("roofer.json", "r")
 # data = f.read()
-# f = open("top_30.json", "r")
-# top_30_data = f.read()
+admin = Blueprint('admin', __name__, static_folder='static')
 
 
 @app.route("/", methods=['GET'])
@@ -17,9 +16,10 @@ def index():
 def input():
    return render_template('input.html')
 
+
 @app.route('/output')
-def student():
-   return '/output'
+def otput_folder():
+   return render_template('files.html')
 
 @app.route('/result',methods = ['POST', 'GET'])
 def result():
@@ -31,8 +31,6 @@ def result():
       the_url = request.form.getlist('Name')
       file_name_chosen = request.form.getlist('Filename')
 
-      print(the_url)
-      print(file_name_chosen)
       soup_yp.output_file(the_url[0], file_name_chosen[0])
 
       return render_template("result.html",result = result)
