@@ -3,10 +3,10 @@ import soup_yp
 
 app = Flask(__name__)
 
-f = open("roofer.json", "r")
-data = f.read()
-f = open("top_30.json", "r")
-top_30_data = f.read()
+# f = open("roofer.json", "r")
+# data = f.read()
+# f = open("top_30.json", "r")
+# top_30_data = f.read()
 
 
 @app.route("/", methods=['GET'])
