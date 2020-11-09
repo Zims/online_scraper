@@ -6,6 +6,7 @@
       <title></title>
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width">
+      <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
       <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
@@ -15,15 +16,19 @@
    <body>
       <div class="center">
          <h2>Scraping your yellow pages search URL</h2>
-
          <table border = 1>
             {% for key, value in result.items() %}
                <tr>
                   <!-- <th> {{ key }} </th> -->
                   <td> {{ value }} </td>
                </tr>
-            {% endfor %}
-         </table>
+               
+               {% endfor %}
+            </table>
+            <a href="./output/">The Link</a>
+            <img src="https://www.w3schools.com/images/picture.jpg" alt="Mountain">
+
+
       </div>
    </body>
 </html>

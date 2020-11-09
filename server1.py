@@ -14,8 +14,12 @@ def index():
     return render_template('/index.html')
 
 @app.route('/input')
-def student():
+def input():
    return render_template('input.html')
+
+@app.route('/output')
+def student():
+   return '/output'
 
 @app.route('/result',methods = ['POST', 'GET'])
 def result():
