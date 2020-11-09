@@ -3,14 +3,18 @@ import json
 import requests
 from bs4 import BeautifulSoup
 import sys
+from datetime import datetime
+
 # https://www.yellowpages.com/search?search_terms=hairstylist&geo_location_terms=New+York%2C+NY
 # https://www.yellowpages.com/search?search_terms=hairstylist&geo_location_terms=New+York%2C+FL
 # https://www.yellowpages.com/search?search_terms=makeup+artist&geo_location_terms=New+York%2C+FL
-
+file_name = ''
 
 def output_file(*args):
     def get_result():
         search_url = args[0]
+        global file_name
+        file_name = args[1]
         # search_url = str(input("Paste the Yellowpages address to scrape (copy the the address of Yellowpages search results): "))
         print(search_url)
         res = requests.get(search_url)
@@ -37,9 +41,12 @@ def output_file(*args):
 
     get_result()
     top_30 = list(get_result())
+    now = datetime.now()
+    current_time = now.strftime("%H:%M:%S")
+
     print('DONE')
     # app_json = json.dumps(appDict)
-    with open('top_30.json', 'w') as json_file:
+    with open(f'output/{file_name}@{current_time}.json', 'w') as json_file:
         json.dump(top_30, json_file)
 
 # output_file(str('https://www.yellowpages.com/search?search_terms=makeup+artist&geo_location_terms=New+York%2C+FL'))
