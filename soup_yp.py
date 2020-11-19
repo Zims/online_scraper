@@ -44,7 +44,7 @@ def output_file(*args):
     get_result()
     top_30 = list(get_result())
     now = datetime.now()
-    current_time = now.strftime("%H:%M")
+    current_time = now.strftime("%H:%M_%m-%y")
     global file_name
     if "/" in file_name:
         file_name = args[1].replace('/', '_')

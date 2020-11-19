@@ -1,7 +1,10 @@
-from flask import Flask, render_template, request, Blueprint
+from flask import Flask, render_template, request, Blueprint, jsonify
 import soup_yp
+import os
 
 app = Flask(__name__)
+
+UPLOAD_DIRECTORY = "/"
 
 # f = open("roofer.json", "r")
 # data = f.read()
@@ -16,7 +19,15 @@ def index():
 def input():
    return render_template('input.html')
 
-
+@app.route("/files")
+def list_files():
+    """Endpoint to list files on the server."""
+    files = []
+    for filename in os.listdir(UPLOAD_DIRECTORY):
+        path = os.path.join(UPLOAD_DIRECTORY, filename)
+        if os.path.isfile(path):
+            files.append(filename)
+    return files[0]
 
 
 @app.route('/output')
