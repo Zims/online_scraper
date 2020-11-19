@@ -9,7 +9,7 @@ from datetime import datetime
 # https://www.yellowpages.com/search?search_terms=hairstylist&geo_location_terms=New+York%2C+FL
 # https://www.yellowpages.com/search?search_terms=makeup+artist&geo_location_terms=New+York%2C+FL
 file_name = ''
-
+json_name = ''
 def output_file(*args):
     def get_result():
         search_url = args[0]
@@ -50,7 +50,11 @@ def output_file(*args):
         file_name = args[1].replace('/', '_')
     print('DONE')
     # app_json = json.dumps(appDict)
+
     with open(f'output/{file_name}-{current_time}.json', 'w') as json_file:
+        global json_name
+        json_name = f'{file_name}-{current_time}.json'
+        print(json_name)
         json.dump(top_30, json_file)
 
 # output_file(str('https://www.yellowpages.com/search?search_terms=makeup+artist&geo_location_terms=New+York%2C+FL'))

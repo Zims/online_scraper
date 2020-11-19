@@ -21,9 +21,9 @@ def input():
    return render_template('input.html')
 
 
-@app.route('/output')
-def otput_folder():
-   return send_from_directory('./output', 'co.json')
+@app.route('/output/<json_name>', methods=['POST'])
+def otput_folder(json_name):
+   return send_from_directory('./output', 'f{json_name}')
 
 @app.route('/result',methods = ['POST', 'GET'])
 def result():
