@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, Blueprint, jsonify
+from flask import Flask, render_template, request, Blueprint, jsonify, send_from_directory
+from flask.helpers import send_file
 import soup_yp
 import os
 
@@ -19,20 +20,10 @@ def index():
 def input():
    return render_template('input.html')
 
-@app.route("/files")
-def list_files():
-    """Endpoint to list files on the server."""
-    files = []
-    for filename in os.listdir(UPLOAD_DIRECTORY):
-        path = os.path.join(UPLOAD_DIRECTORY, filename)
-        if os.path.isfile(path):
-            files.append(filename)
-    return files[0]
-
 
 @app.route('/output')
 def otput_folder():
-   return render_template('files.html')
+   return send_from_directory('./output', 'co.json')
 
 @app.route('/result',methods = ['POST', 'GET'])
 def result():
