@@ -23,12 +23,12 @@
                   <td> {{ value }} </td>
                </tr>
                
-               {% endfor %}
+            {% endfor %}
             </table>
-            {% from soup_yp import json_name %}
-            <a href="/output/{{ json_name }}">The Link</a>
-            {% endfrom %}
-            <!-- <img src="https://www.w3schools.com/images/picture.jpg" alt="Mountain"> -->
+            <!-- Biggest question how to use var frm soup_yp in this file? Do I import? -->
+            
+            <a href="/output/{{ [json_name] }}">The Link</a>
+            <img src="https://www.w3schools.com/images/picture.jpg" alt="Mountain">
 
 
       </div>

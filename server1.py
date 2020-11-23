@@ -25,18 +25,18 @@ def input():
 def otput_folder(json_name):
    return send_from_directory('./output', 'f{json_name}')
 
+
 @app.route('/result',methods = ['POST', 'GET'])
 def result():
+         # return render_template("result.html",result = result)
+
    if request.method == 'POST':
       result = request.form
-
     # how to parse the flask dict:
     # https://stackoverflow.com/questions/23205577/python-flask-immutablemultidict
       the_url = request.form.getlist('Name')
       file_name_chosen = request.form.getlist('Filename')
-
       soup_yp.output_file(the_url[0], file_name_chosen[0])
-
       return render_template("result.html",result = result)
 
 #   gunicorn server1:app

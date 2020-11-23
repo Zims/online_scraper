@@ -48,13 +48,15 @@ def output_file(*args):
     global file_name
     if "/" in file_name:
         file_name = args[1].replace('/', '_')
+    if " " in file_name:
+        file_name = file_name.replace(' ', '_')
     print('DONE')
     # app_json = json.dumps(appDict)
 
     with open(f'output/{file_name}-{current_time}.json', 'w') as json_file:
         global json_name
         json_name = f'{file_name}-{current_time}.json'
-        print(json_name)
+        # print(json_name)
         json.dump(top_30, json_file)
 
 # output_file(str('https://www.yellowpages.com/search?search_terms=makeup+artist&geo_location_terms=New+York%2C+FL'))
