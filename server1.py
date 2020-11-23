@@ -23,6 +23,8 @@ def input():
    return render_template('input.html')
 
 
+
+
 @app.route('/result',methods = ['POST', 'GET'])
 def result():
          # return render_template("result.html",result = result)
@@ -36,9 +38,9 @@ def result():
       return render_template("result.html",result = result, json_name = soup_yp.json_name)
 
 
-@app.route('/output/<json_name>', methods=['POST'])
+@app.route('/output/<json_name>', methods=['POST', 'GET'])
 def otput_folder(json_name):
-   return send_from_directory(f'/output/{json_name}')
+   return send_from_directory('./output', f'{json_name}')
 
 
 
