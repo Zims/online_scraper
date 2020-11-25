@@ -14,7 +14,13 @@
     </head>
     <body>
         <div class="center">
-            <h2>Scrape this yellow pages search URL</h2>
+            <h2>Instructions<br><br></h2>
+            <div class="rules">
+                <p>1. Go to: <a href="https://www.yellowpages.com" target="_blank">yellowpages</a></p>
+                <p>2. Make a search with businesses in a location</p>
+                <p>3. Copy the search address and paste it in the form below (URL)</p>
+                <p>4. Chosa a name for the output file</p>
+            </div>
             <form action = "http://localhost:5000/result" method = "POST">
                <p><input type = "text" name = "Name" /><br>URL</p>
                <p><input type = "text" name = "Filename" /><br>Name Of the file(your choice)</p>
