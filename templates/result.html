@@ -9,11 +9,8 @@
       <meta name="description" content="">
       <meta name="viewport" content="width=device-width">
       <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-
       <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
       <link rel="stylesheet" href="./static/css/normalize.css">
-
   </head>
    <body>
       <div class="center">
@@ -24,12 +21,12 @@
                   <!-- <th> {{ key }} </th> -->
                   <td> {{ value }} </td>
                </tr>
-               
+             
             {% endfor %}
             </table>
             <!-- Biggest question how to use var frm soup_yp in this file? Do I import? -->
-            <a href="/output/{{ json_name }}">The Link</a>
-            <img src="https://www.w3schools.com/images/picture.jpg" alt="Mountain">
+            <a href="/output/{{ json_name }}">Right click to save the json</a>
+            <!-- <img src="https://www.w3schools.com/images/picture.jpg" alt="Mountain"> -->
 
 
       </div>
