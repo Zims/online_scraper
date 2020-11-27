@@ -23,21 +23,25 @@ def output_file(*args):
         soup = BeautifulSoup(res.text, 'html.parser')
         # links = soup.select('.storylink')
         # subtext = soup.select('.subtext')
-        result_card = soup.select('.result')
+        organic_pane = soup.findAll("div", {"class": "organic"})
+        # organic_pane returns html
+        print(organic_pane)
+        result_card = organic_pane.select('.result')
+        print(f'________{result_card}')
         for business in result_card:
             global title
             global address_location
             global phone_num
-            for business_title in business.select('.business-name'):
-                title = business_title.find('span').text
-            for address in business.select('.locality'):
+            for business_title in business.find_all('.business-name'):
+                title = business_title.find_all('span').text
+            for address in business.find_all('.locality'):
                 address_location = address.text
-            for phone in business.select('.phones.phone.primary'):
-                phone_num = phone.text
+            # for phone in business.select('.phones.phone.primary'):
+            #     phone_num = phone.text
             yield {
                 "title": title,
                 "address": address_location,
-                "number": phone_num
+                # "number": phone_num 
                 }
 
 
@@ -58,4 +62,5 @@ def output_file(*args):
         json_name = f'{file_name}-{current_time}.json'
         print(json_name)
         json.dump(top_30, json_file)
+
 # output_file(str('https://www.yellowpages.com/search?search_terms=makeup+artist&geo_location_terms=New+York%2C+FL'))

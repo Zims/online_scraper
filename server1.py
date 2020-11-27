@@ -22,9 +22,6 @@ def index():
 def input():
    return render_template('input.html')
 
-
-
-
 @app.route('/result',methods = ['POST', 'GET'])
 def result():
          # return render_template("result.html",result = result)
