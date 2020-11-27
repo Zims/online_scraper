@@ -23,7 +23,11 @@ def output_file(*args):
         soup = BeautifulSoup(res.text, 'html.parser')
         # links = soup.select('.storylink')
         # subtext = soup.select('.subtext')
-        result_card = soup.select('.result')
+        organic_pane = soup.findAll("div", {"class": "organic"})
+        # organic_pane returns html
+        
+        result_card = organic_pane.findAll("div", {"class": "organic"})
+        print(result_card)
         for business in result_card:
             global title
             global address_location
@@ -37,7 +41,7 @@ def output_file(*args):
             yield {
                 "title": title,
                 "address": address_location,
-                "number": phone_num
+                "number": phone_num 
                 }
 
 
