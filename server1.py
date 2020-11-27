@@ -34,9 +34,11 @@ def result():
     # https://stackoverflow.com/questions/23205577/python-flask-immutablemultidict
       the_url = request.form.getlist('Name')
       file_name_chosen = request.form.getlist('Filename')
-      soup_yp.output_file(the_url[0], file_name_chosen[0])
-      return render_template("result.html",result = result, json_name = soup_yp.json_name)
-
+      if 'yellowpages' in request.form['Name']:
+         soup_yp.output_file(the_url[0], file_name_chosen[0])
+         return render_template("result.html",result = result, json_name = soup_yp.json_name)
+      else:
+         return '<h1>Bad url</h1>'
 
 @app.route('/output/<json_name>', methods=['POST', 'GET'])
 def otput_folder(json_name):
