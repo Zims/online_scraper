@@ -16,3 +16,11 @@
   text-align: left;
   padding-left: 700px;
 }
+.table{
+  align-self: center;
+  margin: auto;
+}
+
+.navibar{
+  padding: 500;
+}
