@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, Blueprint, jsonify, send_from_directory
 from flask import json
 from flask.helpers import send_file
-import soup_yp
+import soup_yp_wo_ads
 import os
 
 app = Flask(__name__)
@@ -32,8 +32,8 @@ def result():
       the_url = request.form.getlist('Name')
       file_name_chosen = request.form.getlist('Filename')
       if 'yellowpages' in request.form['Name']:
-         soup_yp.output_file(the_url[0], file_name_chosen[0])
-         return render_template("result.html",result = result, json_name = soup_yp.json_name)
+         soup_yp_wo_ads.output_file(the_url[0], file_name_chosen[0])
+         return render_template("result.html",result = result, json_name = soup_yp_wo_ads.json_name)
       else:
          return '<h1>Bad url</h1>'
 
