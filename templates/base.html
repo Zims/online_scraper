@@ -2,6 +2,8 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="./static/css/normalize.css"> -->
+
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
@@ -15,9 +17,9 @@
 	         <li class="nav-item active">
                      <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
 		</li>
-		<li class="nav-item">
+		<!-- <li class="nav-item">
 		    <a class="nav-link" href="input">Scrape</a>
-		</li>
+		</li> -->
 		<!-- <li class="nav-item">
 		    <a class="nav-link" href="#">Pricing</a>
 		</li> -->
@@ -26,6 +28,16 @@
 		</li> -->
 	    </ul>
         </div>
+        <div class="dropdown">
+            <button color="red" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Choose site to scrape
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="input">YellowPages</a>
+              <a class="dropdown-item" href="#">Under construction</a>
+              <a class="dropdown-item" href="#">Under construction</a>
+            </div>
+          </div>
     </nav>
     {% block content %}
     {% endblock %}

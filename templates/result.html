@@ -14,7 +14,7 @@
   </head>
    <body>
       <div class="center">
-         <h2>Scraping your yellow pages search URL. <br> And the file name chosen</h2>
+         <h2>Scraping your yellow pages search URL. <br> And the file name chosen</h2><br><br>
          <table class="table" border = 1>
             {% for key, value in result.items() %}
                <tr>
@@ -24,11 +24,12 @@
              
             {% endfor %}
             </table>
+            <br><br>
             <!-- Biggest question how to use var frm soup_yp in this file? Do I import? -->
             <a class="button" href="/output/{{ json_name }}">Right click to save the json</a>
             <!-- <img src="https://www.w3schools.com/images/picture.jpg" alt="Mountain"> -->
 
-
+         <br><br>
       </div>
    </body>
 </html>

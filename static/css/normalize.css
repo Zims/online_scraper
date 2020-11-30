@@ -1,14 +1,14 @@
 .center {
-  padding: 70px 0;
-  border: 6px solid green;
+  padding: 20px 0;
+  border: 2px solid rgb(161, 179, 197);
   text-align: center;
   margin: 50px;
 }
 
 .button {
-  background-color: #4CAF50;
+  background-color: rgb(161, 179, 197);
   color: #ffffff;
-  border-color: #4CAF50;
+  border-color: rgb(161, 179, 197);
   padding: 20px;
 }
 
@@ -23,4 +23,10 @@
 
 .navibar{
   padding: 500;
+}
+
+
+.selectit{
+  text-align: end;
+  padding-right: 30px;
 }
