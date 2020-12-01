@@ -25,19 +25,24 @@ def output_file(*args):
             global title
             global address_location
             global phone_num
+            global url_address
             for business_title in business.select('.business-name'):
                 title = business_title.text
-                print(title)
+                # print(title)
             for address in business.select('.locality'):
                 address_location = address.text
-                print(address_location)
+                # print(address_location)
             for phone in business.select('.phones.phone.primary'):
                 phone_num = phone.text
-                print(phone_num)
+                # print(phone_num)
+            for site in business.find_all("a", string="Website"):
+                url_address = site['href']
+                print(url_address)
             yield {
                 "title": title,
                 "address": address_location,
-                "number": phone_num 
+                "number": phone_num,
+                "website": url_address 
                 }
 
 
