@@ -35,7 +35,7 @@ def result():
          soup_yp_wo_ads.output_file(the_url[0], file_name_chosen[0])
          return render_template("result.html",result = result, json_name = soup_yp_wo_ads.json_name)
       else:
-         return '<h1>Bad url. Go back and try a different address</h1>'
+         return render_template('error.html')
 
 @app.route('/output/<json_name>', methods=['POST', 'GET'])
 def otput_folder(json_name):
