@@ -5,9 +5,6 @@ from bs4 import BeautifulSoup
 import sys
 from datetime import datetime
 
-# https://www.yellowpages.com/search?search_terms=hairstylist&geo_location_terms=New+York%2C+NY
-# https://www.yellowpages.com/search?search_terms=hairstylist&geo_location_terms=New+York%2C+FL
-# https://www.yellowpages.com/search?search_terms=makeup+artist&geo_location_terms=New+York%2C+FL
 file_name = ''
 json_name = ''
 business_title_list = []
@@ -24,25 +21,23 @@ def output_file(*args):
         for business in organic_pane:
             global title
             global address_location
+            global street_address
             global phone_num
-            global url_address
+
             for business_title in business.select('.business-name'):
                 title = business_title.text
-                # print(title)
             for address in business.select('.locality'):
                 address_location = address.text
-                # print(address_location)
+            for str_address in business.select('.street-address'):
+                street_address = str_address.text
             for phone in business.select('.phones.phone.primary'):
                 phone_num = phone.text
-                # print(phone_num)
-            for site in business.find_all("a", string="Website"):
-                url_address = site['href']
-                print(url_address)
+
             yield {
                 "title": title,
                 "address": address_location,
+                "street_address": street_address,
                 "number": phone_num,
-                "website": url_address 
                 }
 
 
@@ -55,14 +50,10 @@ def output_file(*args):
         file_name = args[1].replace('/', '_')
     if " " in file_name:
         file_name = file_name.replace(' ', '_')
-    print('DONE')
-    # app_json = json.dumps(appDict)
+    # print('DONE')
 
     with open(f'output/{file_name}-{current_time}.json', 'w') as json_file:
         global json_name
         json_name = f'{file_name}-{current_time}.json'
         print(json_name)
         json.dump(top_30, json_file)
-
-# output_file(str('https://www.yellowpages.com/search?search_terms=makeup+artist&geo_location_terms=New+York%2C+FL'))
-# output_file()
