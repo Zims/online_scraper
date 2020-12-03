@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, Blueprint, jsonify, send_from
 from flask import json
 from flask.helpers import send_file
 import soup_yp_wo_ads
+import remove_files
 import os
 
 app = Flask(__name__)
@@ -32,6 +33,7 @@ def result():
       the_url = request.form.getlist('Name')
       file_name_chosen = request.form.getlist('Filename')
       if 'yellowpages' in request.form['Name']:
+         remove_files.cleanup()
          soup_yp_wo_ads.output_file(the_url[0], file_name_chosen[0])
          return render_template("result.html",result = result, json_name = soup_yp_wo_ads.json_name)
       else:
