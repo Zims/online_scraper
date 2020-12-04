@@ -20,9 +20,13 @@ def output_file(*args):
 
         for business in organic_pane:
             global title
+            title = ""
             global address_location
+            address_location = ""
             global street_address
+            street_address = ""
             global phone_num
+            phone_num = ""
 
             for business_title in business.select('.business-name'):
                 title = business_title.text
